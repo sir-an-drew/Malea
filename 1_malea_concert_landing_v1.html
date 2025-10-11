@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Импульс Света - Квантовый концерт MALEA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #16001e 100%);
+            color: #e8e8f0;
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeIn 1.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .title {
+            font-size: 3em;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #fff, #a8c0ff, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            color: #c0c0d8;
+            margin-bottom: 30px;
+        }
+        
+        .date-block {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(168, 192, 255, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 40px 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .date-text {
+            font-size: 1.5em;
+            color: #a8c0ff;
+            font-weight: 500;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+            animation: fadeIn 2s ease-in;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            color: #fff;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #a8c0ff, transparent);
+            margin: 15px auto 0;
+        }
+        
+        .intro-text {
+            font-size: 1.15em;
+            text-align: center;
+            line-height: 2;
+            margin-bottom: 30px;
+            color: #d0d0e0;
+        }
+        
+        .highlight {
+            color: #a8c0ff;
+            font-weight: 500;
+        }
+        
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .benefits-list li {
+            padding: 15px 0 15px 40px;
+            position: relative;
+            font-size: 1.1em;
+            border-bottom: 1px solid rgba(168, 192, 255, 0.1);
+        }
+        
+        .benefits-list li::before {
+            content: '🔹';
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+        
+        .for-you-block {
+            background: rgba(168, 192, 255, 0.05);
+            border-left: 3px solid #a8c0ff;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 10px;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .price-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(168, 192, 255, 0.2);
+            border-radius: 20px;
+            padding: 35px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #a8c0ff, #c0d0ff);
+        }
+        
+        .price-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(168, 192, 255, 0.2);
+            border-color: #a8c0ff;
+        }
+        
+        .price-card.featured {
+            border: 2px solid #a8c0ff;
+            background: rgba(168, 192, 255, 0.08);
+        }
+        
+        .price-title {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .price-amount {
+            font-size: 2.5em;
+            color: #a8c0ff;
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+        
+        .price-features {
+            list-style: none;
+            margin-bottom: 25px;
+            font-size: 0.95em;
+        }
+        
+        .price-features li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .price-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #a8c0ff;
+            font-weight: bold;
+        }
+        
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .hosts-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .host-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(168, 192, 255, 0.2);
+        }
+        
+        .host-name {
+            font-size: 1.5em;
+            color: #a8c0ff;
+            margin-bottom: 15px;
+        }
+        
+        .host-description {
+            line-height: 1.8;
+            color: #d0d0e0;
+        }
+        
+        .important-note {
+            background: rgba(168, 192, 255, 0.1);
+            border: 2px solid #a8c0ff;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2em;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">ИМПУЛЬС СВЕТА</h1>
+            <p class="subtitle">Квантовый концерт активации внутреннего источника</p>
+        </div>
+
+        <div class="date-block">
+            <p class="date-text">🌐 [ДАТА] в 19:00 (МСК) 🌐</p>
+            <p class="date-text">ОНЛАЙН-ТРАНСЛЯЦИЯ</p>
+        </div>
+
+        <div class="section">
+            <p class="intro-text">
+                Ты когда-нибудь чувствовал(а), что внутри тебя есть <span class="highlight">источник</span>, который способен создавать реальность?<br><br>
+                
+                Но между тобой и этим источником — слои программ, усталость, шум чужих голосов и забытый язык собственной силы.<br><br>
+                
+                <span class="highlight">Импульс Света</span> — это не концерт для прослушивания.<br>
+                Это <span class="highlight">квантовая активация</span>, которая через звук и слово пробуждает твой внутренний источник и запускает волну преобразования во всех сферах жизни.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🌀 ЧТО ПРОИЗОЙДЁТ В ЭТОТ ВЕЧЕР</h2>
+            
+            <ul class="benefits-list">
+                <li><strong>Активация внутреннего источника силы</strong> — через многослойное звуковое поле мы пробудим в тебе точку творения, из которой рождается новая реальность</li>
+                <li><strong>Перезагрузка энергосистемы</strong> — звуковые частоты растворят энергетические блоки и вернут естественный поток</li>
+                <li><strong>Квантовые поэтические коды</strong> — стихи-активации перепишут старые программы сознания на уровне клеточной памяти</li>
+                <li><strong>Музыкальный портал</strong> — импровизации в реальном времени откроют доступ к твоим лучшим линиям вероятности</li>
+                <li><strong>Коллективное поле силы</strong> — энергия группы многократно усилит индивидуальную трансформацию каждого</li>
+            </ul>
+        </div>
+
+        <div class="for-you-block">
+            <h3 class="section-title">💫 ЭТОТ КОНЦЕРТ ДЛЯ ТЕБЯ, ЕСЛИ ТЫ:</h3>
+            <ul class="benefits-list">
+                <li>Чувствуешь, что живёшь не на полную мощность своего потенциала</li>
+                <li>Готов(а) отпустить старые сценарии «недостаточности», «невозможности», «не сейчас»</li>
+                <li>Хочешь активировать свою креативную силу и начать создавать, а не реагировать</li>
+                <li>Ищешь не информацию, а глубинный живой опыт преобразования</li>
+                <li>Чувствуешь, что пришло время для квантового скачка</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🎭 КТО СОЗДАЁТ ЭТО ПРОСТРАНСТВО</h2>
+            
+            <div class="hosts-section">
+                <div class="host-card">
+                    <h3 class="host-name">MALEA</h3>
+                    <p class="host-description">
+                        Сакральный артист, поэт-визионер, звуковой ченнелер. Её голос — это космический инструмент, который напрямую соединяет с источником внутри. 16 лет практики квантовой психологии и 15 000+ сессий трансформировались в уникальный дар звучания, который работает за пределами логики — сразу с душой.
+                    </p>
+                </div>
+                
+                <div class="host-card">
+                    <h3 class="host-name">АШОТ ДАНИЕЛЯН</h3>
+                    <p class="host-description">
+                        Композитор-мистик с открытым яснослышанием. Создаёт музыку с 5 лет, обладает абсолютным слухом. Его композиции — это архитектура энергии, построенная на частоте золотого сечения 432 Гц. Музыка Ашота используется мировыми брендами и признана на международном уровне.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">✨ ВЫБЕРИ СВОЙ ФОРМАТ УЧАСТИЯ</h2>
+            
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3 class="price-title">НАБЛЮДАТЕЛЬ</h3>
+                    <div class="price-amount">2 990 ₽</div>
+                    <ul class="price-features">
+                        <li>Прямой доступ к онлайн-трансляции концерта</li>
+                        <li>Погружение в коллективное поле трансформации</li>
+                        <li>Запись доступна в течение 7 дней</li>
+                        <li>Доступ в закрытый клуб «Вселенная MALEA» на 1 месяц</li>
+                    </ul>
+                    <button class="cta-button">ПРИСОЕДИНИТЬСЯ</button>
+                    <p style="text-align: center; margin-top: 15px; font-size: 0.9em; color: #a8c0ff;">
+                        Для тех, кто готов войти в поток высоких вибраций
+                    </p>
+                </div>
+
+                <div class="price-card featured">
+                    <h3 class="price-title">ИМПУЛЬС ДУШИ</h3>
+                    <div class="price-amount">7 777 ₽</div>
+                    <ul class="price-features">
+                        <li>Всё из тарифа «Наблюдатель»</li>
+                        <li>Персональный квантовый стих от Malea, созданный под твой запрос прямо на концерте</li>
+                        <li>Аудиозапись твоего послания в авторском исполнении</li>
+                        <li>Вибрационный код для активации желаемой реальности</li>
+                    </ul>
+                    <button class="cta-button">ПОЛУЧИТЬ ИМПУЛЬС</button>
+                    <p style="text-align: center; margin-top: 15px; font-size: 0.9em; color: #a8c0ff;">
+                        ⚡ Всего 12 мест
+                    </p>
+                </div>
+
+                <div class="price-card">
+                    <h3 class="price-title">АКТИВАЦИЯ ИСТОЧНИКА</h3>
+                    <div class="price-amount">33 000 ₽</div>
+                    <ul class="price-features">
+                        <li>Всё из тарифа «Импульс Души»</li>
+                        <li>Индивидуальная 90-минутная звуковая сессия с Malea (онлайн/офлайн)</li>
+                        <li>Глубинная работа с твоим главным запросом</li>
+                        <li>Активация источника внутренней силы и раскрытие заблокированного потенциала</li>
+                        <li>Настройка на самую мощную версию себя</li>
+                    </ul>
+                    <button class="cta-button">АКТИВИРОВАТЬ ИСТОЧНИК</button>
+                    <p style="text-align: center; margin-top: 15px; font-size: 0.9em; color: #a8c0ff;">
+                        ❗ Всего 3 места<br>
+                        Обычная стоимость сессии — 50 000 ₽
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="important-note">
+            <p style="font-size: 1.2em; margin-bottom: 10px;">✨ Концерт пройдёт в закрытом клубе «Вселенная MALEA»</p>
+            <p style="font-size: 1.1em;">Для участников клуба — бесплатно</p>
+        </div>
+
+        <div class="section" style="text-align: center; margin-top: 60px;">
+            <p style="font-size: 1.3em; line-height: 2; color: #d0d0e0;">
+                Импульс уже звучит...<br>
+                Готов(а) ли ты его услышать?<br><br>
+                <span class="highlight">Осталось только войти ⬇️</span>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

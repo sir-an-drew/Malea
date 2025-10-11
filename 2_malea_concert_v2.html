@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Частота Пробуждения - Концерт MALEA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0d0d1a;
+            color: #e8e8f0;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        .cosmic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, #1a0a2e 0%, #0d0d1a 100%);
+            z-index: -1;
+        }
+        
+        .cosmic-bg::before {
+            content: '';
+            position: absolute;
+            width: 300%;
+            height: 300%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(168, 192, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(192, 144, 255, 0.08) 0%, transparent 50%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 50px 25px;
+            position: relative;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            margin-bottom: 80px;
+        }
+        
+        .hero-title {
+            font-size: 4em;
+            font-weight: 200;
+            letter-spacing: 8px;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #fff 0%, #a8c0ff 50%, #ffd6ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 3s ease-in-out infinite;
+        }
+        
+        @keyframes glow {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4em;
+            color: #b8b8d0;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .date-banner {
+            background: linear-gradient(135deg, rgba(168, 192, 255, 0.15), rgba(192, 144, 255, 0.1));
+            border: 1px solid rgba(168, 192, 255, 0.3);
+            border-radius: 20px;
+            padding: 35px;
+            margin: 50px 0;
+            text-align: center;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(168, 192, 255, 0.1);
+        }
+        
+        .date-banner h2 {
+            font-size: 2em;
+            color: #a8c0ff;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+        
+        .date-banner p {
+            font-size: 1.2em;
+            color: #d0d0e0;
+        }
+        
+        .quote-block {
+            text-align: center;
+            padding: 50px 30px;
+            margin: 60px 0;
+            position: relative;
+        }
+        
+        .quote-block::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 8em;
+            color: rgba(168, 192, 255, 0.1);
+            font-family: Georgia, serif;
+        }
+        
+        .quote-text {
+            font-size: 1.5em;
+            line-height: 1.9;
+            color: #fff;
+            font-weight: 300;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section {
+            margin-bottom: 70px;
+        }
+        
+        .section-header {
+            font-size: 2em;
+            margin-bottom: 35px;
+            text-align: center;
+            color: #fff;
+            font-weight: 300;
+            letter-spacing: 3px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #a8c0ff, transparent);
+        }
+        
+        .process-grid {
+            display: grid;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .process-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(168, 192, 255, 0.2);
+            border-radius: 15px;
+            padding: 35px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .process-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(168, 192, 255, 0.05), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .process-item:hover::before {
+            left: 100%;
+        }
+        
+        .process-item:hover {
+            border-color: #a8c0ff;
+            box-shadow: 0 10px 40px rgba(168, 192, 255, 0.15);
+            transform: translateY(-5px);
+        }
+        
+        .process-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .process-item h3 {
+            font-size: 1.5em;
+            color: #a8c0ff;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+        
+        .process-item p {
+            color: #d0d0e0;
+            line-height: 1.8;
+        }
+        
+        .signs-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .sign-item {
+            background: linear-gradient(135deg, rgba(168, 192, 255, 0.05), rgba(192, 144, 255, 0.03));
+            border-left: 3px solid #a8c0ff;
+            padding: 25px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .sign-item:hover {
+            background: linear-gradient(135deg, rgba(168, 192, 255, 0.1), rgba(192, 144, 255, 0.05));
+            transform: translateX(10px);
+        }
+        
+        .artists-section {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            padding: 50px 40px;
+            margin: 60px 0;
+            border: 1px solid rgba(168, 192, 255, 0.15);
+        }
+        
+        .artist {
+            margin-bottom: 45px;
+        }
+        
+        .artist:last-child {
+            margin-bottom: 0;
+        }
+        
+        .artist h3 {
+            font-size: 2em;
+            color: #a8c0ff;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        
+        .artist-role {
+            color: #9090b0;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .artist p {
+            color: #d0d0e0;
+            line-height: 2;
+        }
+        
+        .pricing-section {
+            margin-top: 80px;
+        }
+        
+        .price-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .price-card {
+            background: linear-gradient(135deg, rgba(168, 192, 255, 0.03), rgba(192, 144, 255, 0.02));
+            border: 1px solid rgba(168, 192, 255, 0.25);
+            border-radius: 25px;
+            padding: 40px;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .price-card.vip {
+            border: 2px solid #a8c0ff;
+            background: linear-gradient(135deg, rgba(168, 192, 255, 0.08), rgba(192, 144, 255, 0.05));
+        }
+        
+        .vip-badge {
+            position: absolute;
+            top: -15px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        .price-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 60px rgba(168, 192, 255, 0.2);
+        }
+        
+        .price-name {
+            font-size: 1.8em;
+            color: #fff;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+        
+        .price-desc {
+            color: #9090b0;
+            font-size: 1em;
+            margin-bottom: 25px;
+            min-height: 50px;
+        }
+        
+        .price {
+            font-size: 3em;
+            color: #a8c0ff;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .price-includes {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .price-includes li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #d0d0e0;
+        }
+        
+        .price-includes li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: #a8c0ff;
+            font-size: 1.2em;
+        }
+        
+        .limited {
+            background: rgba(255, 100, 100, 0.1);
+            border: 1px solid rgba(255, 100, 100, 0.3);
+            border-radius: 10px;
+            padding: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffb3b3;
+            font-weight: 500;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 15px;
+            font-size: 1.15em;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+        
+        .club-note {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.08));
+            border: 2px solid #a8c0ff;
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        .club-note h3 {
+            font-size: 1.5em;
+            color: #a8c0ff;
+            margin-bottom: 15px;
+        }
+        
+        .club-note p {
+            font-size: 1.2em;
+            color: #d0d0e0;
+        }
+        
+        .final-cta {
+            text-align: center;
+            padding: 80px 20px 40px;
+        }
+        
+        .final-cta h2 {
+            font-size: 2.5em;
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: 300;
+            line-height: 1.4;
+        }
+        
+        .final-cta .highlight {
+            color: #a8c0ff;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5em;
+                letter-spacing: 4px;
+            }
+            
+            .price-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .quote-text {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cosmic-bg"></div>
+    
+    <div class="container">
+        <div class="hero">
+            <h1 class="hero-title">ЧАСТОТА<br>ПРОБУЖДЕНИЯ</h1>
+            <p class="hero-subtitle">Квантовый концерт-настройка</p>
+        </div>
+
+        <div class="date-banner">
+            <h2>🌀 [ДАТА] • 19:00 МСК 🌀</h2>
+            <p>ОНЛАЙН-ТРАНСЛЯЦИЯ</p>
+        </div>
+
+        <div class="quote-block">
+            <p class="quote-text">
+                Каждый из нас — это живая волна.<br>
+                Но мы разучились звучать на своей частоте.<br>
+                Пора вспомнить.
+            </p>
+        </div>
+
+        <div class="section">
+            <p style="font-size: 1.2em; text-align: center; line-height: 2; color: #d0d0e0; margin-bottom: 40px;">
+                Ты когда-нибудь чувствовал(а), как тело откликается на определённую музыку? Как будто она проникает глубже слов, минуя ум, и <span style="color: #a8c0ff;">что-то внутри начинает просыпаться</span>?
+            </p>
+            
+            <p style="font-size: 1.2em; text-align: center; line-height: 2; color: #d0d0e0;">
+                <strong style="color: #fff;">«Частота Пробуждения»</strong> — это не просто концерт.<br>
+                Это <span style="color: #a8c0ff;">акустическая перезагрузка</span> твоей энергосистемы.<br>
+                Живой звук, который настраивает тебя на твою истинную частоту.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-header">ЧТО ПРОИЗОЙДЁТ</h2>
+            
+            <div class="process-grid">
+                <div class="process-item">
+                    <span class="process-number">1</span>
+                    <h3>Звуковая распаковка</h3>
+                    <p>Через многослойные вибрации и обертона мы освободим сжатые участки твоего энергетического поля. Тело начнёт дышать полнее, а замороженные эмоции — оттаивать и выходить.</p>
+                </div>
+                
+                <div class="process-item">
+                    <span class="process-number">2</span>
+                    <h3>Перенастройка частоты</h3>
+                    <p>Музыка, созданная на частоте 432 Гц (частота золотого сечения), синхронизирует твой внутренний ритм с ритмом Вселенной. Хаос превращается в порядок, напряжение — в поток.</p>
+                </div>
+                
+                <div class="process-item">
+                    <span class="process-number">3</span>
+                    <h3>Активация кодов через слово</h3>
+                    <p>Квантовая поэзия Malea — это не просто стихи. Это вербальные ключи, которые переписывают программы на клеточном уровне. Каждая строка несёт конкретную частоту преобразования.</p>
+                </div>
+                
+                <div class="process-item">
+                    <span class="process-number">4</span>
+                    <h3>Переход в новую реальность</h3>
+                    <p>Когда ты звучишь на своей частоте, ты автоматически притягиваешь события, людей и возможности, резонирующие с твоей истинной природой. Реальность начинает откликаться по-новому.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-header">ЭТО ДЛЯ ТЕБЯ, ЕСЛИ</h2>
+            
+            <div class="signs-list">
+                <div class="sign-item">
+                    Ты чувствуешь внутренний разрыв — живёшь не так, как хочется на самом деле
+                </div>
+                <div class="sign-item">
+                    Энергия утекает, а где твой настоящий ресурс — непонятно
+                </div>
+                <div class="sign-item">
+                    Ты готов(а) выйти из режима выживания и начать творить свою жизнь
+                </div>
+                <div class="sign-item">
+                    Логика и планы больше не работают — пора включить другие инструменты
+                </div>
+                <div class="sign-item">
+                    Ты ищешь не информацию, а живой трансформационный опыт
+                </div>
+                <div class="sign-item">
+                    Чувствуешь: пришло время настроиться на свою истинную частоту
+                </div>
+            </div>
+        </div>
+
+        <div class="artists-section">
+            <h2 class="section-header" style="margin-bottom: 50px;">СОЗДАТЕЛИ ЧАСТОТЫ</h2>
+            
+            <div class="artist">
+                <h3>MALEA</h3>
+                <p class="artist-role">Звуковой проводник • Квантовый психолог</p>
+                <p>
+                    16 лет терапевтической практики и 15 000+ сессий трансформировались в уникальный дар звучания. Malea не просто поёт — она ченнелит частоты, которые напрямую работают с энергетической структурой человека. Её голос — это инструмент квантовой хирургии, который действует там, где слова бессильны.
+                </p>
+            </div>
+            
+            <div class="artist">
+                <h3>АШОТ ДАНИЕЛЯН</h3>
+                <p class="artist-role">Композитор-мистик • Звуковой архитектор</p>
+                <p>
+                    Абсолютный слух и открытое яснослышание с детства. Создаёт музыку с 5 лет, переводя тонкие частоты в звуковые композиции. Его музыка используется мировыми брендами, но настоящая магия происходит, когда Ашот работает в живом потоке — импровизируя, считывая поле и создавая звуковую архитектуру для трансформации.
+                </p>
+            </div>
+        </div>
+
+        <div class="pricing-section">
+            <h2 class="section-header">ВЫБЕРИ СВОЮ ВОЛНУ</h2>
+            
+            <div class="price-cards">
+                <div class="price-card">
+                    <div class="price-name">СЛУШАТЕЛЬ</div>
+                    <div class="price-desc">Вход в частоту</div>
+                    <div class="price">2 222 ₽</div>
+                    <ul class="price-includes">
+                        <li>Участие в живой онлайн-трансляции</li>
+                        <li>Погружение в общее звуковое поле</li>
+                        <li>Запись на 7 дней</li>
+                        <li>Доступ в клуб «Вселенная MALEA» на месяц</li>
+                    </ul>
+                    <button class="btn">Войти в поток</button>
+                </div>
+
+                <div class="price-card vip">
+                    <div class="vip-badge">ПОПУЛЯРНЫЙ</div>
+                    <div class="price-name">РЕЗОНАНС</div>
+                    <div class="price-desc">Персональная настройка</div>
+                    <div class="price">8 888 ₽</div>
+                    <div class="limited">⚡ Осталось 10 мест</div>
+                    <ul class="price-includes">
+                        <li>Всё из тарифа «Слушатель»</li>
+                        <li>Персональный квантовый стих от Malea</li>
+                        <li>Создаётся в момент концерта под твой запрос</li>
+                        <li>Аудио твоего послания навсегда</li>
+                        <li>Работает как звуковой код активации</li>
+                    </ul>
+                    <button class="btn">Получить код</button>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-name">КАМЕРТОН</div>
+                    <div class="price-desc">Глубинная перенастройка</div>
+                    <div class="price">35 000 ₽</div>
+                    <div class="limited">❗ Только 3 места</div>
+                    <ul class="price-includes">
+                        <li>Всё из тарифа «Резонанс»</li>
+                        <li>Личная 90-минутная звуковая сессия с Malea</li>
+                        <li>Онлайн или офлайн (Москва/Сочи)</li>
+                        <li>Работа с главным блоком/запросом</li>
+                        <li>Настройка на твою самую сильную частоту</li>
+                        <li>Активация скрытого потенциала</li>
+                    </ul>
+                    <button class="btn">Стать камертоном</button>
+                    <p style="text-align: center; margin-top: 15px; color: #9090b0; font-size: 0.9em;">
+                        Обычная стоимость сессии — 50 000 ₽
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="club-note">
+            <h3>✨ Для участников клуба «Вселенная MALEA»</h3>
+            <p>Концерт доступен бесплатно</p>
+        </div>
+
+        <div class="final-cta">
+            <h2>
+                Частота уже звучит.<br>
+                Настройся на неё.<br>
+                <span class="highlight">Стань собой — без искажений ⬇️</span>
+            </h2>
+        </div>
+    </div>
+</body>
+</html>
