@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квантовый концерт MALEA "Импульс Света"</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #16001e 100%);
+            color: #e8e8f0;
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeIn 1.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .pre-title {
+            font-size: 1.3em;
+            color: #a8c0ff;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+        
+        .title {
+            font-size: 3em;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #fff, #a8c0ff, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            color: #c0c0d8;
+            margin-bottom: 30px;
+        }
+        
+        .date-block {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(168, 192, 255, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 40px 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .date-text {
+            font-size: 1.5em;
+            color: #a8c0ff;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .location-text {
+            font-size: 1.2em;
+            color: #d0d0e0;
+        }
+        
+        .early-bird-banner {
+            background: linear-gradient(135deg, rgba(255, 100, 100, 0.15), rgba(255, 168, 100, 0.1));
+            border: 2px solid #ffa8a8;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .early-bird-banner h3 {
+            font-size: 1.8em;
+            color: #ffb3b3;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+        
+        .early-bird-banner p {
+            font-size: 1.2em;
+            color: #ffd0d0;
+            line-height: 1.8;
+        }
+        
+        .discount-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        
+        .quote-block {
+            text-align: center;
+            padding: 50px 30px;
+            margin: 60px 0;
+            position: relative;
+        }
+        
+        .quote-block::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 8em;
+            color: rgba(168, 192, 255, 0.1);
+            font-family: Georgia, serif;
+        }
+        
+        .quote-text {
+            font-size: 1.5em;
+            line-height: 1.9;
+            color: #fff;
+            font-weight: 300;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+            animation: fadeIn 2s ease-in;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            color: #fff;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #a8c0ff, transparent);
+            margin: 15px auto 0;
+        }
+        
+        .intro-text {
+            font-size: 1.15em;
+            text-align: center;
+            line-height: 2;
+            margin-bottom: 30px;
+            color: #d0d0e0;
+        }
+        
+        .highlight {
+            color: #a8c0ff;
+            font-weight: 500;
+        }
+        
+        .science-block {
+            background: rgba(168, 192, 255, 0.05);
+            border: 1px solid rgba(168, 192, 255, 0.3);
+            border-radius: 15px;
+            padding: 35px;
+            margin: 40px 0;
+        }
+        
+        .science-block h3 {
+            font-size: 1.6em;
+            color: #a8c0ff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .science-block p {
+            font-size: 1.1em;
+            line-height: 1.9;
+            color: #d0d0e0;
+            margin-bottom: 15px;
+        }
+        
+        .science-facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .science-fact {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid #a8c0ff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .science-fact h4 {
+            color: #a8c0ff;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .science-fact p {
+            font-size: 1em;
+            line-height: 1.7;
+        }
+        
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .benefits-list li {
+            padding: 15px 0 15px 40px;
+            position: relative;
+            font-size: 1.1em;
+            border-bottom: 1px solid rgba(168, 192, 255, 0.1);
+        }
+        
+        .benefits-list li::before {
+            content: '🔹';
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .price-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(168, 192, 255, 0.2);
+            border-radius: 20px;
+            padding: 35px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #a8c0ff, #c0d0ff);
+        }
+        
+        .early-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 15px;
+            font-size: 0.75em;
+            font-weight: 600;
+        }
+        
+        .price-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(168, 192, 255, 0.2);
+            border-color: #a8c0ff;
+        }
+        
+        .price-card.featured {
+            border: 2px solid #a8c0ff;
+            background: rgba(168, 192, 255, 0.08);
+        }
+        
+        .price-card.offline {
+            border: 2px solid #c0a8ff;
+            background: rgba(192, 168, 255, 0.08);
+        }
+        
+        .price-title {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .price-format {
+            text-align: center;
+            color: #9090b0;
+            font-size: 0.95em;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .price-original {
+            text-align: center;
+            color: #808090;
+            text-decoration: line-through;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+        
+        .price-amount {
+            font-size: 2.5em;
+            color: #a8c0ff;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        
+        .price-save {
+            text-align: center;
+            color: #ffb3b3;
+            font-size: 0.95em;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+        
+        .price-features {
+            list-style: none;
+            margin-bottom: 25px;
+            font-size: 0.95em;
+        }
+        
+        .price-features li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .price-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #a8c0ff;
+            font-weight: bold;
+        }
+        
+        .limited-spots {
+            background: rgba(255, 100, 100, 0.1);
+            border: 1px solid rgba(255, 100, 100, 0.3);
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #ffb3b3;
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+        
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .hosts-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .host-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(168, 192, 255, 0.2);
+        }
+        
+        .host-name {
+            font-size: 1.5em;
+            color: #a8c0ff;
+            margin-bottom: 15px;
+        }
+        
+        .host-description {
+            line-height: 1.8;
+            color: #d0d0e0;
+        }
+        
+        .important-note {
+            background: rgba(168, 192, 255, 0.1);
+            border: 2px solid #a8c0ff;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2em;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <p class="pre-title">КВАНТОВЫЙ КОНЦЕРТ MALEA</p>
+            <h1 class="title">ИМПУЛЬС СВЕТА</h1>
+            <p class="subtitle">Звуком и словом в новую реальность</p>
+        </div>
+
+        <div class="date-block">
+            <p class="date-text">🌐 НОЯБРЬ 2025 🌐</p>
+            <p class="location-text">Живой концерт в Москве + Онлайн-трансляция</p>
+            <p style="color: #9090b0; margin-top: 10px; font-size: 0.95em;">Точная дата будет объявлена позже</p>
+        </div>
+
+        <div class="early-bird-banner">
+            <h3>🔥 СПЕЦИАЛЬНЫЕ УСЛОВИЯ РАННЕЙ РЕГИСТРАЦИИ 🔥</h3>
+            <p>Для тех, кто принимает решение сейчас</p>
+            <div class="discount-badge">до -40% на все тарифы</div>
+            <p style="margin-top: 20px;">После объявления точной даты цены вырастут</p>
+        </div>
+
+        <div class="quote-block">
+            <p class="quote-text">
+                Каждый из нас — это живая волна.<br>
+                Но мы разучились звучать на своей частоте.<br>
+                Пора вспомнить.
+            </p>
+        </div>
+
+        <div class="section">
+            <p class="intro-text">
+                Ты стоишь на пороге. За спиной — привычный мир, построенный формулами ума. Впереди — мерцающее поле всех возможностей, где твоя Душа — это вселенная, а каждое решение рождает новую реальность.
+            </p>
+            
+            <p class="intro-text">
+                Но как сделать шаг? Как услышать тот самый импульс из глубины себя, который знает дорогу?
+            </p>
+            
+            <p class="intro-text">
+                <span class="highlight">Звук и Слово</span> — вот два ключа, которые отпирают дверь.
+            </p>
+        </div>
+
+        <div class="science-block">
+            <h3>🔬 НАУЧНОСТЬ ЗВУКА И ЧАСТОТ</h3>
+            <p>
+                Это не будет концерт в привычном смысле. Это — квантовая настройка. Глубинный разговор с тем, кто ты есть на самом деле, за пределами масок, ролей и старых сценариев.
+            </p>
+            
+            <div class="science-facts">
+                <div class="science-fact">
+                    <h4>Частота 432 Гц</h4>
+                    <p>Музыка создаётся на частоте золотого сечения — естественном резонансе природы и человеческого тела. Эта частота синхронизирует внутренние ритмы с ритмами Вселенной.</p>
+                </div>
+                
+                <div class="science-fact">
+                    <h4>Резонанс Шумана</h4>
+                    <p>Сейчас частота Земли нестабильна. Волны высокочастотных энергий меняют плотность времени и структуры сознания. Звук помогает телу адаптироваться к новым частотам.</p>
+                </div>
+                
+                <div class="science-fact">
+                    <h4>Нейропластичность</h4>
+                    <p>Звуковые вибрации создают новые нейронные связи, активируя скрытые ресурсы и способности. Музыка работает напрямую с бессознательным, минуя фильтры ума.</p>
+                </div>
+                
+                <div class="science-fact">
+                    <h4>Торсионное поле</h4>
+                    <p>Звук активирует твоё торсионное поле — энергетическую спираль, которая управляет потоками силы и качеством внутреннего состояния.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🌀 ЧТО ПРОИЗОЙДЁТ В ЭТОТ ВЕЧЕР</h2>
+            
+            <p style="text-align: center; margin-bottom: 30px; color: #d0d0e0;">
+                Мы создадим единое вибрационное поле, где:
+            </p>
+            
+            <ul class="benefits-list">
+                <li><strong>Стихи-активации</strong> коснутся самых потаённых струн твоей души и зададут им новый, более высокий резонанс</li>
+                <li><strong>Музыкальные импровизации</strong> будут звучать в реальном времени, как отклик на общее энергетическое поле группы, растворяя блоки и напряженность в теле</li>
+                <li><strong>Квантовое присутствие</strong> позволит нам выйти за границы линейного времени и прикоснуться к тому варианту будущего, где ты уже живёшь как самая свободная и полная версия себя</li>
+                <li><strong>Перенастройка энергосистемы</strong> через звуковые частоты восстановит твой центр и расширит проводимость</li>
+                <li><strong>Переход в новую реальность</strong> — когда ты звучишь на своей частоте, реальность начинает откликаться по-новому</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">🌀 КТО ПРОВОДИТ ТЕБЯ В НОВУЮ РЕАЛЬНОСТЬ</h2>
+            
+            <div class="hosts-section">
+                <div class="host-card">
+                    <h3 class="host-name">MALEA</h3>
+                    <p class="host-description">
+                        Сакральный артист, поэт-визионер, голос которой — это мост между мирами. Её стихи — не текст, а живая материя, которая меняет структуру пространства и сознания того, кто их слышит. Каждое слово — это ключ. 16 лет опыта квантовой психологии и 15 000+ сессий трансформировались в уникальный дар звучания.
+                    </p>
+                </div>
+                
+                <div class="host-card">
+                    <h3 class="host-name">АШОТ ДАНИЕЛЯН</h3>
+                    <p class="host-description">
+                        Композитор-мистик, виртуозно говорящий на языке вибраций. Его музыка — это не фон, это пульс самой вечности, который гармонизирует и выстраивает внутреннее пространство, подготавливая его для принятия квантовых поэтических кодов. Пишет музыку с 5 лет, обладает абсолютным слухом и открытым яснослышанием.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">✨ ВЫБЕРИ СВОЙ ФОРМАТ УЧАСТИЯ</h2>
+            
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <div class="early-tag">-43%</div>
+                    <h3 class="price-title">НАБЛЮДАТЕЛЬ</h3>
+                    <p class="price-format">Онлайн-трансляция</p>
+                    <div class="price-original">3 500 ₽</div>
+                    <div class="price-amount">1 990 ₽</div>
+                    <div class="price-save">экономия 1 510 ₽</div>
+                    <ul class="price-features">
+                        <li>Прямой доступ в онлайн-зал на живую трансляцию концерта</li>
+                        <li>Погружение в общее мощное поле групповой трансформации</li>
+                        <li>Запись концерта доступна в течение недели</li>
+                        <li>Доступ к клубу «Вселенная MALEA» на 1 месяц</li>
+                    </ul>
+                    <button class="cta-button">ЗАБРОНИРОВАТЬ</button>
+                    <p style="text-align: center; margin-top: 15px; font-size: 0.9em; color: #a8c0ff;">
+                        Для тех, кто готов искупаться в океане новых вибраций
+                    </p>
+                </div>
+
+                <div class="price-card offline">
+                    <div class="early-tag">-40%</div>
+                    <h3 class="price-title">ПРИСУТСТВИЕ</h3>
+                    <p class="price-format">Живой концерт в Москве</p>
+                    <div class="price-original">9 000 ₽</div>
+                    <div class="price-amount">5 500 ₽</div>
+                    <div class="price-save">экономия 3 500 ₽</div>
+                    <div class="limited-spots">⚡ Ограниченное количество мест</div>
+                    <ul class="price-features">
+                        <li>Личное присутствие на живом концерте в Москве</li>
+                        <li>Максимальное погружение в звуковое поле</li>
+                        <li>Прямой контакт с энергией MALEA и музыкантов</li>
+                        <li>Запись концерта на неделю</li>
+                        <li>Доступ к клубу «Вселенная MALEA» на 1 месяц</li>
+                    </ul>
+                    <button class="cta-button">ЗАБРОНИРОВАТЬ</button>
+                    <p style="text-align: center; margin-top: 15px; font-size: 0.9em; color: #c0a8ff;">
+                        Для тех, кто готов к полному погружению
+                    </p>
+                </div>
+
+                <div class="price-card featured">
+                    <div class="early-tag">-33%</div>
+                    <h3 class="price-title">ПОСЛАНИЕ ИЗ БУДУЩЕГО</h3>
+                    <p class="price-format">Онлайн или Офлайн + персональное послание</p>
+                    <div class="price-original">9 000 ₽</div>
+                    <div class="price-amount">6 000 ₽</div>
+                    <div class="price-save">экономия 3 000 ₽</div>
+                    <div class="limited-spots">⚡ Всего 15 мест</div>
+                    <ul class="price-features">
+                        <li>Участие онлайн или офлайн (на выбор)</li>
+                        <li>Индивидуальное сакральное послание от Malea</li>
+                        <li>Уникальный метафорический стих под твой запрос</li>
+                        <li>Аудиозапись твоего послания в исполнении автора</li>
+                        <li>Вибрационный код для открытия новой реальности</li>
+                    </ul>
+                    <button class="cta-button">ПОЛУЧИТЬ ПОСЛАНИЕ</button>
+                    <p style="text-align: center; margin-top: 15px; font-size: 0.9em; color: #a8c0ff;">
+                        Живой ключ, который откроет дверь в твою новую реальность
+                    </p>
+                </div>
+
+                <div class="price-card">
+                    <div class="early-tag">-40%</div>
+                    <h3 class="price-title">АКТИВАЦИЯ АВАТАРА</h3>
+                    <p class="price-format">Индивидуальная работа + концерт</p>
+                    <div class="price-original">45 000 ₽</div>
+                    <div class="price-amount">27 000 ₽</div>
+                    <div class="price-save">экономия 18 000 ₽</div>
+                    <div class="limited-spots">❗ Только 4 места</div>
+                    <ul class="price-features">
+                        <li>Всё из тарифа «Послание из Будущего»</li>
+                        <li>90-минутная индивидуальная квантово-звуковая сессия с Malea</li>
+                        <li>Очно в Москве/Сочи или онлайн (до или после концерта)</li>
+                        <li>Глубокая работа с твоим запросом</li>
+                        <li>Активация «аватара» — самой мощной версии тебя</li>
+                        <li>Растворение главного ограничения на твоём пути</li>
+                    </ul>
+                    <button class="cta-button">АКТИВИРОВАТЬ</button>
+                    <p style="text-align: center; margin-top: 15px; font-size: 0.9em; color: #9090b0;">
+                        Обычная стоимость сессии — 50 000 ₽
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="important-note">
+            <p style="font-size: 1.2em; margin-bottom: 10px;">✨ Сессия пройдёт в рамках закрытого клуба «Вселенная MALEA»</p>
+            <p style="font-size: 1.1em; margin-bottom: 15px;">Для участников клуба — бесплатно</p>
+            <p style="font-size: 1em; color: #ffa8a8; margin-top: 20px;">
+                ⚠️ После объявления точной даты все цены вернутся к стандартным.<br>
+                Сейчас — самое выгодное время принять решение.
+            </p>
+        </div>
+
+        <div class="section" style="text-align: center; margin-top: 60px;">
+            <p style="font-size: 1.3em; line-height: 2; color: #d0d0e0;">
+                Импульс уже звучит...<br>
+                Готов(а) ли ты его услышать?<br><br>
+                <span class="highlight">Войди в новую реальность ⬇️</span>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
