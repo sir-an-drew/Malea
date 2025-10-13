@@ -283,6 +283,18 @@
             font-weight: 600;
         }
         
+        .club-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 15px;
+            font-size: 0.75em;
+            font-weight: 600;
+        }
+        
         .price-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(168, 192, 255, 0.2);
@@ -297,6 +309,11 @@
         .price-card.offline {
             border: 2px solid #c0a8ff;
             background: rgba(192, 168, 255, 0.08);
+        }
+        
+        .price-card.premium {
+            border: 2px solid #ffd700;
+            background: rgba(255, 215, 0, 0.05);
         }
         
         .price-title {
@@ -336,6 +353,13 @@
             font-size: 0.95em;
             margin-bottom: 25px;
             font-weight: 500;
+        }
+        
+        .price-range {
+            text-align: center;
+            color: #a8c0ff;
+            font-size: 1.3em;
+            margin-bottom: 10px;
         }
         
         .price-features {
@@ -441,20 +465,20 @@
         <div class="header">
             <p class="pre-title">КВАНТОВЫЙ КОНЦЕРТ MALEA</p>
             <h1 class="title">ИМПУЛЬС СВЕТА</h1>
-            <p class="subtitle">Звуком и словом в новую реальность</p>
+            <p class="subtitle">Звуком в новую реальность</p>
         </div>
 
         <div class="date-block">
-            <p class="date-text">🌐 НОЯБРЬ 2025 🌐</p>
+            <p class="date-text">🌐 9 НОЯБРЯ 2025 🌐</p>
             <p class="location-text">Живой концерт в Москве + Онлайн-трансляция</p>
-            <p style="color: #9090b0; margin-top: 10px; font-size: 0.95em;">Точная дата будет объявлена позже</p>
+            <p style="color: #9090b0; margin-top: 10px; font-size: 0.95em;">*Окончательная дата уточняется</p>
         </div>
 
         <div class="early-bird-banner">
             <h3>🔥 СПЕЦИАЛЬНЫЕ УСЛОВИЯ РАННЕЙ РЕГИСТРАЦИИ 🔥</h3>
             <p>Для тех, кто принимает решение сейчас</p>
-            <div class="discount-badge">до -40% на все тарифы</div>
-            <p style="margin-top: 20px;">После объявления точной даты цены вырастут</p>
+            <div class="discount-badge">до -60% на все тарифы</div>
+            <p style="margin-top: 20px;">После объявления окончательной даты цены вырастут</p>
         </div>
 
         <div class="quote-block">
@@ -475,7 +499,7 @@
             </p>
             
             <p class="intro-text">
-                <span class="highlight">Звук и Слово</span> — вот два ключа, которые отпирают дверь.
+                <span class="highlight">Звук</span> — вот ключ, который отпирает дверь.
             </p>
         </div>
 
@@ -516,7 +540,7 @@
             </p>
             
             <ul class="benefits-list">
-                <li><strong>Стихи-активации</strong> коснутся самых потаённых струн твоей души и зададут им новый, более высокий резонанс</li>
+                <li><strong>Живая музыка MALEA</strong> создаст многослойное звуковое пространство, которое коснётся самых потаённых струн твоей души</li>
                 <li><strong>Музыкальные импровизации</strong> будут звучать в реальном времени, как отклик на общее энергетическое поле группы, растворяя блоки и напряженность в теле</li>
                 <li><strong>Квантовое присутствие</strong> позволит нам выйти за границы линейного времени и прикоснуться к тому варианту будущего, где ты уже живёшь как самая свободная и полная версия себя</li>
                 <li><strong>Перенастройка энергосистемы</strong> через звуковые частоты восстановит твой центр и расширит проводимость</li>
@@ -525,20 +549,20 @@
         </div>
 
         <div class="section">
-            <h2 class="section-title">🌀 КТО ПРОВОДИТ ТЕБЯ В НОВУЮ РЕАЛЬНОСТЬ</h2>
+            <h2 class="section-title">🌀 КТО СОЗДАЁТ ЭТО ПРОСТРАНСТВО</h2>
             
             <div class="hosts-section">
                 <div class="host-card">
                     <h3 class="host-name">MALEA</h3>
                     <p class="host-description">
-                        Сакральный артист, поэт-визионер, голос которой — это мост между мирами. Её стихи — не текст, а живая материя, которая меняет структуру пространства и сознания того, кто их слышит. Каждое слово — это ключ. 16 лет опыта квантовой психологии и 15 000+ сессий трансформировались в уникальный дар звучания.
+                        Сакральный артист, голос которой — это мост между мирами. Её музыка — живая материя, которая меняет структуру пространства и сознания того, кто её слышит. 16 лет опыта квантовой психологии и 15 000+ сессий трансформировались в уникальный дар звучания.
                     </p>
                 </div>
                 
                 <div class="host-card">
                     <h3 class="host-name">АШОТ ДАНИЕЛЯН</h3>
                     <p class="host-description">
-                        Композитор-мистик, виртуозно говорящий на языке вибраций. Его музыка — это не фон, это пульс самой вечности, который гармонизирует и выстраивает внутреннее пространство, подготавливая его для принятия квантовых поэтических кодов. Пишет музыку с 5 лет, обладает абсолютным слухом и открытым яснослышанием.
+                        Композитор-мистик, виртуозно говорящий на языке вибраций. Его музыка — это не фон, это пульс самой вечности, который гармонизирует и выстраивает внутреннее пространство. Пишет музыку с 5 лет, обладает абсолютным слухом и открытым яснослышанием.
                     </p>
                 </div>
             </div>
@@ -549,95 +573,90 @@
             
             <div class="pricing-grid">
                 <div class="price-card">
-                    <div class="early-tag">-43%</div>
+                    <div class="club-tag">ДЛЯ КЛУБА</div>
                     <h3 class="price-title">НАБЛЮДАТЕЛЬ</h3>
                     <p class="price-format">Онлайн-трансляция</p>
-                    <div class="price-original">3 500 ₽</div>
-                    <div class="price-amount">1 990 ₽</div>
-                    <div class="price-save">экономия 1 510 ₽</div>
+                    <div class="price-range">от 990 ₽</div>
+                    <div class="price-save">для участников клуба «Вселенная MALEA»</div>
                     <ul class="price-features">
                         <li>Прямой доступ в онлайн-зал на живую трансляцию концерта</li>
                         <li>Погружение в общее мощное поле групповой трансформации</li>
                         <li>Запись концерта доступна в течение недели</li>
-                        <li>Доступ к клубу «Вселенная MALEA» на 1 месяц</li>
                     </ul>
                     <button class="cta-button">ЗАБРОНИРОВАТЬ</button>
                     <p style="text-align: center; margin-top: 15px; font-size: 0.9em; color: #a8c0ff;">
-                        Для тех, кто готов искупаться в океане новых вибраций
+                        Early Bird Price для участников клуба
                     </p>
                 </div>
 
                 <div class="price-card offline">
-                    <div class="early-tag">-40%</div>
+                    <div class="early-tag">-58%</div>
                     <h3 class="price-title">ПРИСУТСТВИЕ</h3>
                     <p class="price-format">Живой концерт в Москве</p>
-                    <div class="price-original">9 000 ₽</div>
-                    <div class="price-amount">5 500 ₽</div>
+                    <div class="price-original">6 000 ₽</div>
+                    <div class="price-amount">2 500 ₽</div>
                     <div class="price-save">экономия 3 500 ₽</div>
                     <div class="limited-spots">⚡ Ограниченное количество мест</div>
                     <ul class="price-features">
                         <li>Личное присутствие на живом концерте в Москве</li>
                         <li>Максимальное погружение в звуковое поле</li>
                         <li>Прямой контакт с энергией MALEA и музыкантов</li>
-                        <li>Запись концерта на неделю</li>
-                        <li>Доступ к клубу «Вселенная MALEA» на 1 месяц</li>
+                        <li>Трансформационный опыт живого звука</li>
                     </ul>
                     <button class="cta-button">ЗАБРОНИРОВАТЬ</button>
                     <p style="text-align: center; margin-top: 15px; font-size: 0.9em; color: #c0a8ff;">
-                        Для тех, кто готов к полному погружению
+                        Для тех, кто готов к полному погружению<br>
+                        Финальная цена: 6 000 ₽
                     </p>
                 </div>
 
                 <div class="price-card featured">
-                    <div class="early-tag">-33%</div>
-                    <h3 class="price-title">ПОСЛАНИЕ ИЗ БУДУЩЕГО</h3>
-                    <p class="price-format">Онлайн или Офлайн + персональное послание</p>
-                    <div class="price-original">9 000 ₽</div>
+                    <div class="early-tag">Скидка</div>
+                    <h3 class="price-title">VIP</h3>
+                    <p class="price-format">Первый ряд + запись</p>
                     <div class="price-amount">6 000 ₽</div>
-                    <div class="price-save">экономия 3 000 ₽</div>
-                    <div class="limited-spots">⚡ Всего 15 мест</div>
                     <ul class="price-features">
-                        <li>Участие онлайн или офлайн (на выбор)</li>
-                        <li>Индивидуальное сакральное послание от Malea</li>
-                        <li>Уникальный метафорический стих под твой запрос</li>
-                        <li>Аудиозапись твоего послания в исполнении автора</li>
-                        <li>Вибрационный код для открытия новой реальности</li>
+                        <li>Место в первом ряду на живом концерте</li>
+                        <li>Максимальная близость к артистам</li>
+                        <li>Глубочайшее погружение в звуковое поле</li>
+                        <li>Запись концерта на неделю</li>
+                        <li>Привилегированный опыт трансформации</li>
                     </ul>
-                    <button class="cta-button">ПОЛУЧИТЬ ПОСЛАНИЕ</button>
+                    <button class="cta-button">ЗАБРОНИРОВАТЬ VIP</button>
                     <p style="text-align: center; margin-top: 15px; font-size: 0.9em; color: #a8c0ff;">
-                        Живой ключ, который откроет дверь в твою новую реальность
+                        Для тех, кто выбирает максимальное присутствие
                     </p>
                 </div>
 
-                <div class="price-card">
-                    <div class="early-tag">-40%</div>
-                    <h3 class="price-title">АКТИВАЦИЯ АВАТАРА</h3>
-                    <p class="price-format">Индивидуальная работа + концерт</p>
+                <div class="price-card premium">
+                    <div class="early-tag">-44%</div>
+                    <h3 class="price-title">МЕЛОДИЯ ДУШИ</h3>
+                    <p class="price-format">Первый ряд + персональная мелодия</p>
                     <div class="price-original">45 000 ₽</div>
-                    <div class="price-amount">27 000 ₽</div>
-                    <div class="price-save">экономия 18 000 ₽</div>
-                    <div class="limited-spots">❗ Только 4 места</div>
+                    <div class="price-amount">25 000 ₽</div>
+                    <div class="price-save">экономия 20 000 ₽</div>
+                    <div class="limited-spots">❗ Всего 10 мест</div>
                     <ul class="price-features">
-                        <li>Всё из тарифа «Послание из Будущего»</li>
-                        <li>90-минутная индивидуальная квантово-звуковая сессия с Malea</li>
-                        <li>Очно в Москве/Сочи или онлайн (до или после концерта)</li>
-                        <li>Глубокая работа с твоим запросом</li>
-                        <li>Активация «аватара» — самой мощной версии тебя</li>
-                        <li>Растворение главного ограничения на твоём пути</li>
+                        <li>Место в первом ряду на концерте</li>
+                        <li>Персональная Мелодия Души (отдельный день)</li>
+                        <li>Уникальная композиция, созданная специально для тебя</li>
+                        <li>Запись концерта на две недели</li>
+                        <li>Запись твоей Мелодии Души навсегда</li>
+                        <li>Глубинная индивидуальная работа через звук</li>
                     </ul>
-                    <button class="cta-button">АКТИВИРОВАТЬ</button>
-                    <p style="text-align: center; margin-top: 15px; font-size: 0.9em; color: #9090b0;">
-                        Обычная стоимость сессии — 50 000 ₽
+                    <button class="cta-button">ЗАБРОНИРОВАТЬ</button>
+                    <p style="text-align: center; margin-top: 15px; font-size: 0.9em; color: #ffd700;">
+                        Самый глубокий уровень работы<br>
+                        Финальная цена: 45 000 ₽
                     </p>
                 </div>
             </div>
         </div>
 
         <div class="important-note">
-            <p style="font-size: 1.2em; margin-bottom: 10px;">✨ Сессия пройдёт в рамках закрытого клуба «Вселенная MALEA»</p>
-            <p style="font-size: 1.1em; margin-bottom: 15px;">Для участников клуба — бесплатно</p>
+            <p style="font-size: 1.2em; margin-bottom: 15px;">✨ Концерт пройдёт в рамках закрытого клуба «Вселенная MALEA»</p>
             <p style="font-size: 1em; color: #ffa8a8; margin-top: 20px;">
-                ⚠️ После объявления точной даты все цены вернутся к стандартным.<br>
+                ⚠️ После объявления окончательной даты все цены вырастут.<br>
                 Сейчас — самое выгодное время принять решение.
             </p>
         </div>
